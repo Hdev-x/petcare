@@ -6,6 +6,8 @@
 
 | 위치 | 소유 내용 |
 |---|---|
+| apps/web/ | React 실행 앱; app/pages/features/shared 실제 책임 |
+| apps/backend/·apps/ml/ | 기존 서버·AI 실행 앱; 내부 도메인·의존성·계약 유지 |
 | root README.md | 기존 제품 소개와 개인 운영문서 진입 링크 |
 | root AGENTS.md | 개인 작업 규칙 Router |
 | docs/operations/ | 개인 Git·구조·확장·원본 대조·검증 기준 |

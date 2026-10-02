@@ -82,11 +82,13 @@ PetCare AI의 분석 결과는 수의사의 진료나 확정 진단을 대신하
 
 ```text
 petcare/
-├── apps/web/   # React 사용자 화면
-├── apps/backend/ # Spring Boot API·인증·도메인 서비스
-├── apps/ml/    # FastAPI Image Inference Contract·Gemini/RAG Prototype
-├── supabase/   # PostgreSQL Migration
-└── docs/       # 요구사항·API·DB 명세·발표자료·README 이미지
+├── apps/
+│   ├── web/       # React 사용자 화면
+│   ├── backend/   # Spring Boot API·인증·도메인 서비스
+│   └── ml/        # FastAPI Image Inference Contract·Gemini/RAG Prototype
+├── supabase/      # PostgreSQL Migration
+├── docs/          # 요구사항·API·DB 명세·발표자료·README 이미지
+└── work-status/   # 개인 작업 상태·계획·결정
 ```
 
 ## 실행 방법
