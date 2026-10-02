@@ -1,6 +1,6 @@
 # 개인 포크 폴더와 문서 규칙
 
-기존 `frontend/`, `backend/`, `ml/`, `supabase/`, 팀 제품 `docs/`와 README의 기여자·팀 이력은 보존한다. 운영규칙 적용을 앱 구조 재편으로 확대하지 않는다.
+실행 앱은 `apps/web/`, `apps/backend/`, `apps/ml/`에 둔다. `supabase/`, 팀 제품 `docs/`와 README의 기여자·팀 이력은 보존한다. 이 배치는 별도 승인된 개인 포크 리팩터링이며 운영규칙 적용 자체가 앱 구조 재편 권한을 만들지는 않는다.
 
 ## 배치
 
@@ -41,4 +41,4 @@
 
 ## 조건부 구조 확장
 
-현재 PetCare의 실제 서비스 폴더를 유지한다. 독립 실행·dependency 분리·공유 code 문제로 새 구조가 필요하고 요청 범위에 포함된 때만 검토한다. WYBU Electron·npm workspaces·Context Runtime 경로, WikiBU, `<git-common-dir>/wybu/` Store는 PetCare에 도입하지 않는다.
+현재 PetCare의 세 실행 경계와 앱별 dependency를 유지한다. 독립 실행·dependency 분리·공유 code 문제로 새 구조가 필요하고 요청 범위에 포함된 때만 검토한다. WYBU Electron·npm workspaces·Context Runtime 경로, WikiBU, `<git-common-dir>/wybu/` Store는 PetCare에 도입하지 않는다.

@@ -57,10 +57,10 @@ naver:
     client-secret: YOUR_NAVER_CLIENT_SECRET_HERE
 ```
 
-### 2) 프론트엔드 (React Vite: `frontend/.env`)
+### 2) 프론트엔드 (React Vite: `apps/web/.env`)
 
 ```env
-# frontend/.env
+# apps/web/.env
 VITE_NAVER_CLIENT_ID=YOUR_NAVER_CLIENT_ID_HERE
 ```
 

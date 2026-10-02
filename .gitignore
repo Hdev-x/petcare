@@ -10,66 +10,66 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Frontend build and local files
-/frontend/logs/
-/frontend/node_modules/
-/frontend/dist/
-/frontend/dist-ssr/
-/frontend/**/*.local
+/apps/web/logs/
+/apps/web/node_modules/
+/apps/web/dist/
+/apps/web/dist-ssr/
+/apps/web/**/*.local
 
 # Frontend editor files
-/frontend/.vscode/*
-!/frontend/.vscode/extensions.json
-/frontend/.idea/
-/frontend/*.suo
-/frontend/*.ntvs*
-/frontend/*.njsproj
-/frontend/*.sln
-/frontend/*.sw?
+/apps/web/.vscode/*
+!/apps/web/.vscode/extensions.json
+/apps/web/.idea/
+/apps/web/*.suo
+/apps/web/*.ntvs*
+/apps/web/*.njsproj
+/apps/web/*.sln
+/apps/web/*.sw?
 
 # Backend build files
-/backend/HELP.md
-/backend/.gradle/
-/backend/build/
-!/backend/gradle/wrapper/gradle-wrapper.jar
-!/backend/**/src/main/**/build/
-!/backend/**/src/test/**/build/
-/backend/bin/
-!/backend/**/src/main/**/bin/
-!/backend/**/src/test/**/bin/
+/apps/backend/HELP.md
+/apps/backend/.gradle/
+/apps/backend/build/
+!/apps/backend/gradle/wrapper/gradle-wrapper.jar
+!/apps/backend/**/src/main/**/build/
+!/apps/backend/**/src/test/**/build/
+/apps/backend/bin/
+!/apps/backend/**/src/main/**/bin/
+!/apps/backend/**/src/test/**/bin/
 
 # Backend IDE files
-/backend/.apt_generated/
-/backend/.classpath
-/backend/.factorypath
-/backend/.project
-/backend/.settings/
-/backend/.springBeans
-/backend/.sts4-cache/
-/backend/.idea/
-/backend/*.iws
-/backend/*.iml
-/backend/*.ipr
-/backend/out/
-!/backend/**/src/main/**/out/
-!/backend/**/src/test/**/out/
-/backend/nbproject/private/
-/backend/nbbuild/
-/backend/dist/
-/backend/nbdist/
-/backend/.nb-gradle/
-/backend/.vscode/
+/apps/backend/.apt_generated/
+/apps/backend/.classpath
+/apps/backend/.factorypath
+/apps/backend/.project
+/apps/backend/.settings/
+/apps/backend/.springBeans
+/apps/backend/.sts4-cache/
+/apps/backend/.idea/
+/apps/backend/*.iws
+/apps/backend/*.iml
+/apps/backend/*.ipr
+/apps/backend/out/
+!/apps/backend/**/src/main/**/out/
+!/apps/backend/**/src/test/**/out/
+/apps/backend/nbproject/private/
+/apps/backend/nbbuild/
+/apps/backend/dist/
+/apps/backend/nbdist/
+/apps/backend/.nb-gradle/
+/apps/backend/.vscode/
 
 # Python AI service local environment
-/ml/.venv/
-/ml/.pytest_cache/
-/ml/**/__pycache__/
+/apps/ml/.venv/
+/apps/ml/.pytest_cache/
+/apps/ml/**/__pycache__/
 
 # Backend secrets and environment-specific settings
-/backend/.env
-/backend/*.env
-/backend/**/.env
-/backend/**/application-secret.properties
-/backend/**/application-local.properties
-/backend/**/application-dev.properties
-/backend/**/application-*.properties
-!/backend/src/main/resources/application-demo.properties
+/apps/backend/.env
+/apps/backend/*.env
+/apps/backend/**/.env
+/apps/backend/**/application-secret.properties
+/apps/backend/**/application-local.properties
+/apps/backend/**/application-dev.properties
+/apps/backend/**/application-*.properties
+!/apps/backend/src/main/resources/application-demo.properties
