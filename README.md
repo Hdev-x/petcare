@@ -82,11 +82,13 @@ PetCare AI의 분석 결과는 수의사의 진료나 확정 진단을 대신하
 
 ```text
 petcare/
-├── frontend/   # React 사용자 화면
-├── backend/    # Spring Boot API·인증·도메인 서비스
-├── ml/         # FastAPI Image Inference Contract·Gemini/RAG Prototype
-├── supabase/   # PostgreSQL Migration
-└── docs/       # 요구사항·API·DB 명세·발표자료·README 이미지
+├── apps/
+│   ├── web/       # React 사용자 화면
+│   ├── backend/   # Spring Boot API·인증·도메인 서비스
+│   └── ml/        # FastAPI Image Inference Contract·Gemini/RAG Prototype
+├── supabase/      # PostgreSQL Migration
+├── docs/          # 요구사항·API·DB 명세·발표자료·README 이미지
+└── work-status/   # 개인 작업 상태·계획·결정
 ```
 
 ## 실행 방법
@@ -96,7 +98,7 @@ petcare/
 ### 1. AI Service (:8000)
 
 ```bash
-cd ml
+cd apps/ml
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
 .venv/bin/python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
@@ -107,7 +109,7 @@ python3 -m venv .venv
 ### 2. Backend (:8080)
 
 ```bash
-cd backend
+cd apps/backend
 DIAGNOSIS_VISION_ENABLED=true \
 DIAGNOSIS_VISION_BASE_URL=http://127.0.0.1:8000 \
 ./gradlew bootRun
@@ -118,7 +120,7 @@ AI 기능을 사용하지 않을 때는 환경변수 없이 `./gradlew bootRun`�
 ### 3. Frontend (:5173)
 
 ```bash
-cd frontend
+cd apps/web
 npm ci
 npm run dev
 ```
@@ -130,7 +132,7 @@ Frontend의 `/api` 요청은 Vite Proxy를 통해 `http://localhost:8080`으로 
 - [요구사항 정의서](docs/요구사항_정의서_상세.md)
 - [API 명세서](docs/API_명세서.md)
 - [Database Guide](docs/DATABASE_SCHEMA_GUIDE.md)
-- [AI Service Guide](ml/README.md)
+- [AI Service Guide](apps/ml/README.md)
 - [최종 발표자료 PDF](docs/PetCare_Fixed_Presentation.pdf)
 
 ## 개인 포크 운영
