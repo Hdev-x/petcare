@@ -45,7 +45,7 @@ export default function App() {
   });
 
   // Check if current URL is OAuth2 callback
-  const [isOAuth2Callback, setIsOAuth2Callback] = useState(() => 
+  const [isOAuth2Callback, setIsOAuth2Callback] = useState(() =>
     window.location.pathname.startsWith('/oauth2/callback')
   );
 

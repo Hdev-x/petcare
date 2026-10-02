@@ -21,3 +21,11 @@
 - 방법·결과: 기존 전역 hooks·callback·OAuth·Navbar·Pet 모달 연결 원문 비교 동일, 화면 JSX/style는 콜백 prop 치환만. App 805→353줄. Web build 통과와 기존 인증·진단 브라우저 회귀 76/76 통과(실패·skip 0).
 - 테스트 계약: 실제 authApi·HTTP guard·Login fixture는 mock Component observer로 바꾸지 않았다. 진단 API만 기존과 동일한 메모리 mock이며 race/이미지/실패저장 검증 의미 유지.
 - 한계: Dashboard의 새 카드·모달 상호작용과 전체 실제 화면 검증은 다음 항목에서 별도 확인. 외부 Data/Provider/DB는 호출하지 않았다.
+
+## Dashboard 상태와 UI 책임 분리
+
+- 대상: `WEB-WP-001-T03` / `WEB-WP-001-G01`.
+- 대상 상태: features/pets/dashboard 10개 파일, 진입 2,815→295줄, 상태 hook·카드/차트·기록·루틴/일정 modal.
+- 방법·결과: 실행문/effect/handler·파생값과 공개 props, 13개 UI subtree를 확장한 JSX AST가 원본과 동일. 독립 재검토 P0/P1 0·group 누락 0. 끝 공백만 정리해 base 전체 diff check 통과.
+- 모의 브라우저 회귀: 전체 화면·login/logout·Pet 전환/profile 저장·quick/bulk/chart·루틴·일정·등록/수정·subtab/mock chat 8/8 통과. 같은 fixture의 원본도 8/8 통과. 실제 계정/API/DB/AI 사용 없음.
+- 한계: 전체 UI 비교의 PNG 차이는 최종 검증에서 별도로 조사 중이며 아직 전체 Gate 통과로 표시하지 않는다. 기존 루틴 reset 특이 동작 등 기능은 구조 변경으로 수정하지 않았다.
