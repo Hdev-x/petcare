@@ -1,0 +1,29 @@
+name: PR Check
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize, ready_for_review, converted_to_draft]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-check-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  template:
+    name: PR template
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Checkout
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+
+      - name: Test repository
+        run: node --test tests/pr-check.test.mjs
+
+      - name: Check pull request
+        run: node scripts/pr-check.mjs
