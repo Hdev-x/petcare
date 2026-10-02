@@ -36,12 +36,12 @@ area: "WEB"
 
 <a id="web-wp-001-t01"></a>
 
-- [ ] `WEB-WP-001-T01` (`T-01`): `진행 중` · 앱 경로 이동과 기존 build/lint/회귀 기준 확보
+- [x] `WEB-WP-001-T01` (`T-01`): `통과` · 앱 경로 이동과 기존 build/lint/회귀 기준 확보
   - 완료 확인: 앱 code bytes·실행 설정 보존, 기존 검사 결과와 현재 경로 일치.
 
 <a id="web-wp-001-t02"></a>
 
-- [ ] `WEB-WP-001-T02` (`T-02`): `대기` · app wiring·페이지 조립·기능/공통 경계 배치
+- [ ] `WEB-WP-001-T02` (`T-02`): `진행 중` · app wiring·페이지 조립·기능/공통 경계 배치
   - 완료 확인: activeTab 분기와 props·인증/race guard·CSS/DOM 유지, 관련 build·회귀 통과.
 
 <a id="web-wp-001-t03"></a>
@@ -60,5 +60,5 @@ area: "WEB"
 
 - [ ] 상태: `대기`
 - 기준: 전체 Task 통과, 기존 UI/계약 보존, 영향받는 검증과 전체 diff·Secret 확인.
-- 확인한 증거: 시작 main 940b409 clean, 새 수동 worktree 격리. 검사 기준 수집 중.
-- 남은 조건: `WEB-WP-001-T01`~`WEB-WP-001-T04` 구현·검증.
+- 확인한 증거: [검증 근거](evidence.md)의 기준·경로 이동 결과.
+- 남은 조건: `WEB-WP-001-T02`~`WEB-WP-001-T04` 구현·검증.
