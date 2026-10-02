@@ -27,11 +27,11 @@ before(async () => {
       enforce: 'pre',
       resolveId(source, importer) {
         if (source === entry) return entry;
-        if (importer?.endsWith('/diagnosis/DiagnosisStudio.jsx') && source === '../../api/diagnosisApi') {
+        if (importer?.endsWith('/features/diagnosis/components/DiagnosisStudio.jsx') && source === '../api/diagnosisApi') {
           apiMocked = true;
           return '\0diagnosis-mock';
         }
-        if (importer?.endsWith('/diagnosis/CareFlowBranch.jsx') && source === '../../api/hospitalApi') {
+        if (importer?.endsWith('/features/diagnosis/components/CareFlowBranch.jsx') && source === '../../hospitals/api/hospitalApi') {
           hospitalApiMocked = true;
           return '\0hospital-mock';
         }
@@ -43,8 +43,8 @@ before(async () => {
         return `
           import React, { useState } from 'react';
           import { createRoot } from 'react-dom/client';
-          import DiagnosisDropzone from '../src/components/DiagnosisDropzone.jsx';
-          import CareFlowBranch from '../src/components/CareFlowBranch.jsx';
+          import DiagnosisDropzone from '../src/features/diagnosis/components/DiagnosisStudio.jsx';
+          import CareFlowBranch from '../src/features/diagnosis/components/CareFlowBranch.jsx';
           const params = new URLSearchParams(location.search);
           const withCareFlow = params.has('care');
           window.geolocationCalls = 0;
@@ -110,7 +110,7 @@ before(async () => {
   const outputs = (Array.isArray(bundle) ? bundle : [bundle]).flatMap(item => item.output);
   const script = outputs.find(item => item.type === 'chunk').code;
   // 실제 디자인을 검증하되 외부 Font 다운로드는 하지 않는다.
-  const css = (await readFile(`${root}src/index.css`, 'utf8')).replace(/^@import .*$/gm, '');
+  const css = (await readFile(`${root}src/shared/styles/index.css`, 'utf8')).replace(/^@import .*$/gm, '');
   server = createServer((request, response) => {
     response.setHeader('Content-Type', request.url === '/fixture.js'
       ? 'text/javascript; charset=utf-8' : 'text/html; charset=utf-8');

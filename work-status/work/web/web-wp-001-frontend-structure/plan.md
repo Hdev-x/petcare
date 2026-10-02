@@ -41,12 +41,12 @@ area: "WEB"
 
 <a id="web-wp-001-t02"></a>
 
-- [ ] `WEB-WP-001-T02` (`T-02`): `진행 중` · app wiring·페이지 조립·기능/공통 경계 배치
+- [x] `WEB-WP-001-T02` (`T-02`): `통과` · app wiring·페이지 조립·기능/공통 경계 배치
   - 완료 확인: activeTab 분기와 props·인증/race guard·CSS/DOM 유지, 관련 build·회귀 통과.
 
 <a id="web-wp-001-t03"></a>
 
-- [ ] `WEB-WP-001-T03` (`T-03`): `대기` · Dashboard 실제 책임 분리
+- [ ] `WEB-WP-001-T03` (`T-03`): `진행 중` · Dashboard 실제 책임 분리
   - 완료 확인: 펫 선택·지표·기록·모달·localStorage 상태가 동일한 사용자 흐름으로 동작.
 
 <a id="web-wp-001-t04"></a>
@@ -61,4 +61,4 @@ area: "WEB"
 - [ ] 상태: `대기`
 - 기준: 전체 Task 통과, 기존 UI/계약 보존, 영향받는 검증과 전체 diff·Secret 확인.
 - 확인한 증거: [검증 근거](evidence.md)의 기준·경로 이동 결과.
-- 남은 조건: `WEB-WP-001-T02`~`WEB-WP-001-T04` 구현·검증.
+- 남은 조건: `WEB-WP-001-T03`~`WEB-WP-001-T04` 구현·검증.

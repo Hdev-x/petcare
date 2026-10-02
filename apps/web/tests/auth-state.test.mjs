@@ -11,6 +11,26 @@ import { before, after, test } from 'node:test';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const entry = resolve(root, 'tests/auth-state-observer.jsx');
+// 실제 해결된 Component 경로를 관찰한다. app/pages 내부 추출에 의존하지 않는다.
+const observerComponents = new Map([
+  ['app/Navbar.jsx', 'Navbar'],
+  ['pages/home/HeroSection.jsx', 'HeroSection'],
+  ['features/diagnosis/components/DiagnosisStudio.jsx', 'DiagnosisDropzone'],
+  ['features/diagnosis/components/CareFlowBranch.jsx', 'CareFlowBranch'],
+  ['features/pets/dashboard/PetHealthDashboard.jsx', 'PetHealthDashboard'],
+  ['features/auth/components/LoginPage.jsx', 'LoginPage'],
+  ['features/auth/components/OAuth2CallbackPage.jsx', 'OAuth2CallbackPage'],
+  ['features/pets/components/PetEditModal.jsx', 'PetEditModal'],
+  ['features/pets/components/PetRegisterModal.jsx', 'PetRegisterModal'],
+  ['features/account/components/MyPage.jsx', 'MyPage'],
+  ['features/chat/components/DailyCareChatbot.jsx', 'DailyCareChatbot'],
+  ['features/timeline/components/TimelineSlider.jsx', 'TimelineSlider'],
+  ['features/hospitals/components/HospitalLocator.jsx', 'HospitalLocator'],
+  ['features/news/components/NewsSection.jsx', 'NewsSection'],
+  ['features/community/components/CommunitySection.jsx', 'CommunitySection'],
+  ['features/community/components/CommunityPostDetail.jsx', 'CommunityPostDetail'],
+  ['shared/ui/Footer.jsx', 'Footer']
+].map(([path, name]) => [resolve(root, 'src', path), name]));
 let server, browser, baseUrl;
 
 before(async () => {
@@ -23,11 +43,13 @@ before(async () => {
     },
     plugins: [{
       name: 'auth-state-observer', enforce: 'pre',
-      resolveId(source, importer) {
+      async resolveId(source, importer) {
         if (source === entry) return entry;
-        if (importer?.endsWith('/src/App.jsx') && source.startsWith('./components/')) {
-          return '\0observer:' + source.split('/').at(-1);
-        }
+        // fixture가 직접 import하는 실제 LoginPage·authApi·HTTP guard는 교체하지 않는다.
+        if (!importer || importer === entry || !source.startsWith('.')) return;
+        const resolved = await this.resolve(source, importer, { skipSelf: true });
+        const component = observerComponents.get(resolved?.id);
+        if (component) return '\0observer:' + component;
       },
       load(id) {
         if (id.startsWith('\0observer:')) {
@@ -43,10 +65,10 @@ before(async () => {
         return String.raw`
           import React, { useState } from 'react';
           import { createRoot } from 'react-dom/client';
-          import App from '../src/App.jsx';
-          import LiveLoginPage from '../src/components/LoginPage.jsx';
-          import { httpClient, sessionStorage } from '../src/api/common/httpClient.js';
-          import { authApi } from '../src/api/authApi.js';
+          import App from '../src/app/App.jsx';
+          import LiveLoginPage from '../src/features/auth/components/LoginPage.jsx';
+          import { httpClient, sessionStorage } from '../src/shared/api/httpClient.js';
+          import { authApi } from '../src/features/auth/api/authApi.js';
           window.fixtureSession = sessionStorage;
           window.fixtureAuth = authApi;
           window.observed = {};

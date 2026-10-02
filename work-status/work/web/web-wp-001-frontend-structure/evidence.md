@@ -13,3 +13,11 @@
 ## 후속 Gate
 
 아직 통과 전. App/Dashboard 구현 후 기존 회귀·추가 모의 브라우저·build/lint·전체 diff를 확인한다.
+
+## App 페이지와 기존 인증·진단 회귀
+
+- 대상: `WEB-WP-001-T02` / `WEB-WP-001-G01`.
+- 대상 상태: apps/web/src/app/App.jsx와 7개 페이지 추출, 기존 2개 Web 회귀의 경로/observer boundary 갱신 시점.
+- 방법·결과: 기존 전역 hooks·callback·OAuth·Navbar·Pet 모달 연결 원문 비교 동일, 화면 JSX/style는 콜백 prop 치환만. App 805→353줄. Web build 통과와 기존 인증·진단 브라우저 회귀 76/76 통과(실패·skip 0).
+- 테스트 계약: 실제 authApi·HTTP guard·Login fixture는 mock Component observer로 바꾸지 않았다. 진단 API만 기존과 동일한 메모리 mock이며 race/이미지/실패저장 검증 의미 유지.
+- 한계: Dashboard의 새 카드·모달 상호작용과 전체 실제 화면 검증은 다음 항목에서 별도 확인. 외부 Data/Provider/DB는 호출하지 않았다.
