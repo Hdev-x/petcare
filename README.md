@@ -132,3 +132,7 @@ Frontend의 `/api` 요청은 Vite Proxy를 통해 `http://localhost:8080`으로 
 - [Database Guide](docs/DATABASE_SCHEMA_GUIDE.md)
 - [AI Service Guide](ml/README.md)
 - [최종 발표자료 PDF](docs/PetCare_Fixed_Presentation.pdf)
+
+## 개인 포크 운영
+
+Hdev-x 개인 포크의 작업 운영규칙은 [AGENTS.md](AGENTS.md), 현재 상태·Work·Decision·Question·인계는 [work-status/README.md](work-status/README.md)에서 확인합니다. 적용 근거와 검증은 [운영 대조표](docs/operations/rule-mapping.md)를 따릅니다. 팀 기여·제품 문서와 공식 기록은 보존하며 개인 운영규칙이 팀 권한이나 결정을 대체하지 않습니다.
